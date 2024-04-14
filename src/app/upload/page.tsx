@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 const UploadPage = () => {
+     const router = useRouter();
+
      const [formData, setFormData] = useState({
           contractName: '',
           yourName: '',
-          idNumber: '',
+          idNumber: 'Hello',
           description: ''
      });
 
@@ -32,7 +35,8 @@ const UploadPage = () => {
           if (file) {
                console.log('Uploaded File:', file);
           }
-          // Backend
+          // Redirect to the result page
+          router.push('/result');
      };
 
      return (
