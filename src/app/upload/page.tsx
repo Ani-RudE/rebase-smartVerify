@@ -36,7 +36,7 @@ const UploadPage = () => {
                console.log('Uploaded File:', file);
           }
           // Redirect to the result page
-          router.push('/result');
+          // router.push('');
      };
 
      return (
