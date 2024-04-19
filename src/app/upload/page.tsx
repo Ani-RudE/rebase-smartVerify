@@ -7,10 +7,10 @@ const UploadPage = () => {
      const router = useRouter();
 
      const [formData, setFormData] = useState({
-          contractName: '',
-          yourName: '',
-          idNumber: 'Hello',
-          description: ''
+          contractName: 'default',
+          contractLink: 'default',
+          tags: 'default',
+          description: 'default'
      });
 
      const [file, setFile] = useState<File | null>(null);
@@ -162,27 +162,13 @@ const UploadPage = () => {
 
                               {/* Other input fields omitted for brevity */}
                               <div>
-                                   <label htmlFor="name" className="block text-sm font-semibold text-gray-400">
-                                        Your Name
+                                   <label htmlFor="tags" className="block text-sm font-semibold text-gray-400">
+                                        Tags
                                    </label>
                                    <input
                                         type="text"
-                                        id="name"
-                                        name="yourName"
-                                        onChange={handleInputChange}
-                                        className="mt-1 block w-full px-4 py-2 bg-gray-700 text-gray-300 border rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40"
-                                        required
-                                   />
-                              </div>
-
-                              <div>
-                                   <label htmlFor="personal-id" className="block text-sm font-semibold text-gray-400">
-                                        ID Number
-                                   </label>
-                                   <input
-                                        type="text"
-                                        id="personal-id"
-                                        name="idNumber"
+                                        id="tags"
+                                        name="tags"
                                         onChange={handleInputChange}
                                         className="mt-1 block w-full px-4 py-2 bg-gray-700 text-gray-300 border rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40"
                                         required
@@ -203,19 +189,31 @@ const UploadPage = () => {
                                    />
                               </div>
 
-                              <div>
-                                   <div className="flex flex-col items-center justify-center px-6 pt-5 pb-6 border-2 border-gray-700 border-dashed rounded-md bg-gray-900">
-                                        {/* Make sure the SVG URL is correct */}
-                                        <svg className="mx-auto h-12 w-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="https://cdn.discordapp.com/attachments/1075621727004016721/1228797243063144580/outbox.png?ex=662d599c&is=661ae49c&hm=f58ca0e846294458e05cce8ddeed7802981848c6600d7fd6602d18178e2d3ae2&">
-                                             {/* Your SVG path here */}
-                                        </svg>
-                                        <div className="text-sm text-gray-400">
-                                             <label htmlFor="file-upload" className="relative cursor-pointer bg-gray-900 rounded-md font-medium text-purple-500 hover:text-purple-400 focus-within:outline-none">
-                                                  <span>Upload your Smart Contract &quot;.sol&quot; File</span>
-                                                  <input id="file-upload" name="file-upload" type="file" onChange={handleFileChange} className="sr-only" />
-                                             </label>
-                                        </div>
+                              {/* <div>
+                              <div className="flex flex-col items-center justify-center px-6 pt-5 pb-6 border-2 border-gray-700 border-dashed rounded-md bg-gray-900">
+                                   <svg className="mx-auto h-12 w-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="https://cdn.discordapp.com/attachments/1075621727004016721/1228797243063144580/outbox.png?ex=662d599c&is=661ae49c&hm=f58ca0e846294458e05cce8ddeed7802981848c6600d7fd6602d18178e2d3ae2&">
+                                   </svg>
+                                   <div className="text-sm text-gray-400">
+                                        <label htmlFor="file-upload" className="relative cursor-pointer bg-gray-900 rounded-md font-medium text-purple-500 hover:text-purple-400 focus-within:outline-none">
+                                             <span>Upload your Smart Contract &quot;.sol&quot; File</span>
+                                             <input id="file-upload" name="file-upload" type="file" onChange={handleFileChange} className="sr-only" />
+                                        </label>
                                    </div>
+                              </div>
+                         </div> */}
+
+                              <div>
+                                   <label htmlFor="contractLink" className="block text-sm font-semibold text-gray-400">
+                                        {`".sol" File Link`}
+                                   </label>
+                                   <input
+                                        type="text"
+                                        id="contractLink"
+                                        name="contractLink"
+                                        onChange={handleInputChange}
+                                        className="mt-1 block w-full px-4 py-2 bg-gray-700 text-gray-300 border rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        required
+                                   />
                               </div>
 
                               <div className="flex items-center">
